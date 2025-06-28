@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Get Activation code</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .page {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .active {
+      display: flex;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .payment-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    .logo {
+  width: 24px;
+  height: 24px;
+  background-image: url('opay.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      background-color: #007BFF;
+      color: white;
+    }
+    button.back {
+      background-color: #6c757d;
+    }
+    input {
+      padding: 10px;
+      width: 200px;
+      margin-bottom: 15px;
+    }
+    .loader {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #007BFF;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .error-icon {
+      font-size: 50px;
+      color: red;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page 1: Welcome -->
+  <div id="page1" class="page active">
+    <h1>Bx Predictor</h1>
+    <h2>100% aviator predictor in real time</h2>
+    <h2>activation code = #2000</h2>
+    <h2>Make payment to get activation code</h2>
+    <div class="payment-info">
+      <span>7025051784</span>
+      <div class="logo"></div>
+    </div>
+    <h2>Promise Onyedika Chokwuani</h2>
+    <div>
+      <button onclick="goTo('page2')">Verify Payment</button>
+      <button class="back" onclick="window.location.href='https://stkhack.github.io/bxpredictor/'">Back</button>
+    </div>
+  </div>
+
+  <!-- Page 2: Name Input -->
+  <div id="page2" class="page">
+    <h2>Name on Account</h2>
+    <input type="text" id="accountName" placeholder="Enter account name" />
+    <button onclick="verifyName()">Verify</button>
+  </div>
+
+  <!-- Page 3: Loading -->
+  <div id="page3" class="page">
+    <div class="loader"></div>
+    <h2>Verifying...</h2>
+  </div>
+
+  <!-- Page 4: Failed -->
+  <div id="page4" class="page">
+    <div class="error-icon">❌</div>
+    <h2>Failed to verify</h2>
+    <button class="back" onclick="goTo('page1')">Back</button>
+  </div>
+
+  <script>
+    function goTo(pageId) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+    }
+
+    function verifyName() {
+      goTo('page3');
+      setTimeout(() => {
+        goTo('page4');
+      }, 10000); // 10 seconds
+    }
+  </script>
+
+</body>
+</html>
